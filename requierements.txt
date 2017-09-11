@@ -1,0 +1,6 @@
+flask
+Flask-Script
+bcrypt
+pdb
+email_validator
+Flask-Login

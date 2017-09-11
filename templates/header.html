@@ -1,0 +1,20 @@
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <li role="presentation" class="{{ ' active' if current_page == 'home' else '' }}"><a href="/index">Home</a></li>
+      {% if session['logged_in'] %}
+      <li role="presentation"><a href="/logout">Logout</a></li>
+      {% else %}
+      <li role="presentation" class="{{ ' active' if current_page == 'register' else '' }}"><a href="/register">Register</a></li>
+      <li role="presentation" class="{{ ' active' if current_page == 'login' else '' }}"><a href="/login">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% if errors %}
+  <div class=error>{{ errors | safe }}</div>
+  {% endif %} 
+  
+  {% for message in get_flashed_messages() %}
+  <div class=flash>{{ message }}</div>
+  {% endfor %}
+</div>
